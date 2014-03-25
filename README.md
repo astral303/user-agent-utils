@@ -5,12 +5,13 @@ Utilities for processing user-agent strings. Can be used to handle http requests
 
 http://haraldwalker.github.com/user-agent-utils/
 
-New in Version 1.9 (unreleased)
+New in Version 1.9
 ------------------
 
 * Fixed version detection of Chrome Mobile
 * Added Firefox 20 detection plus beta and future versions
 * Added beta and future versions of Chrome
+* Detect BlackBerry10 browser
 
 Javadoc
 -------

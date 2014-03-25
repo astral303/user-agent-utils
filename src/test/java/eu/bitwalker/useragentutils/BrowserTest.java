@@ -77,7 +77,12 @@ public class BrowserTest {
 	};
 	
 	String[] ie10clients = new String[] {
-			"Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.1; Trident/6.0)"
+			"Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.1; Trident/6.0)",
+			"Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.2; Trident/6.0)"
+	};	
+	
+	String[] ie11clients = new String[] {
+			"Mozilla/5.0 (Windows NT 6.3; WOW64; Trident/7.0; rv:11.0) like Gecko"
 	};	
 	
 	String[] ie55clients = new String[] {
@@ -335,6 +340,11 @@ public class BrowserTest {
 			"Mozilla/5.0 (Windows; U; cs-CZ) AppleWebKit/526.9+ (KHTML, like Gecko) AdobeAIR/1.5.1"
 	};
 	
+	String[] blackberry10 = {
+			"Mozilla/5.0 (BB10; Touch) AppleWebKit/537.1 (KHTML, like Gecko) Version/10.0.0.1337 Mobile Safari/537.1",
+			"Mozilla/5.0 (BB10; Kbd) AppleWebKit/537.10+ (KHTML, like Gecko) Version/10.1.0.1485 Mobile Safari/537.10+"
+	};
+	
 	
 	/**
 	 * Test method for {@link eu.bitwalker.useragentutils.Browser#isInUserAgentString(java.lang.String)}.
@@ -390,6 +400,7 @@ public class BrowserTest {
 		testAgents(ie8clients, Browser.IE8);
 		testAgents(ie9clients, Browser.IE9);
 		testAgents(ie10clients, Browser.IE10);
+		testAgents(ie11clients, Browser.IE11);
 		testAgents(ieTooOld, Browser.IE);
 		testAgents(outlook2007, Browser.OUTLOOK2007);
 		testAgents(outlook2010, Browser.OUTLOOK2010);
@@ -441,6 +452,7 @@ public class BrowserTest {
 		testAgents(iTunes, Browser.APPLE_ITUNES);
 		testAgents(appStore, Browser.APPLE_APPSTORE);
 		testAgents(airApp, Browser.ADOBE_AIR);
+		testAgents(blackberry10, Browser.BLACKBERRY10);
 	}
 	
 	@Test
