@@ -55,6 +55,16 @@
 	</distributionManagement>
 
 	<build>
+		<resources>
+			<resource>
+				<directory>src/main/java</directory>
+				<includes>
+					<include>**/*Type.java</include>
+					<include>**/*.gwt.xml</include>
+				</includes>
+			</resource>
+		</resources>
+
 		<finalName>${project.artifactId}-${project.version}</finalName>
 		<plugins>
 			<plugin>
@@ -82,13 +92,13 @@
 					<repositoryOwner>haraldwalker</repositoryOwner>        <!-- github username -->
 				</configuration>
 				<executions>
-					<!-- run site-maven-plugin's 'site' target as part of the build's normal 
+					<!-- run site-maven-plugin's 'site' target as part of the build's normal
 						'deploy' phase -->
 					<execution>
 						<goals>
 							<goal>site</goal>
 						</goals>
-						<phase>deploy</phase>
+						<phase>none</phase>
 					</execution>
 				</executions>
 			</plugin>
@@ -130,7 +140,7 @@
 				<artifactId>maven-resources-plugin</artifactId>
 				<version>2.2</version>
 			</plugin>
-			
+
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-source-plugin</artifactId>
@@ -140,6 +150,27 @@
 						<goals>
 							<goal>jar</goal>
 						</goals>
+					</execution>
+				</executions>
+			</plugin>
+
+			<plugin>
+				<artifactId>maven-jar-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>enums-for-gwt</id>
+						<goals><goal>jar</goal></goals>
+						<phase>package</phase>
+						<configuration>
+							<archive>
+								<addMavenDescriptor>false</addMavenDescriptor>
+							</archive>
+							<classifier>enums-for-gwt</classifier>
+							<includes>
+								<include>eu/bitwalker/useragentutils/*Type.*</include>
+								<include>**/*.gwt.xml</include>
+							</includes>
+						</configuration>
 					</execution>
 				</executions>
 			</plugin>
